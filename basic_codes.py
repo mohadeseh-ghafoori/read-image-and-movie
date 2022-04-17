@@ -1,4 +1,5 @@
 import cv2 as cv 
+#read and show image as well as video
 img=cv.imread("G:\learn opencv/dollar.tif")
 cv.imshow("original image", img)
 capture=cv.VideoCapture("G:\learn opencv/LEARN_OPENCV_in_3_HOURS_with_Python_Including_3xProject_WQeoO7MI0Bs_247.mkv")
@@ -11,3 +12,9 @@ while True:
 capture.release()
 cv.destroyAllWindows()
 cv.waitKey(0)
+
+#resclae video 
+def rescale_frame(frame,scale=0.5):
+    width,height=frame.shape[:2]
+    dimension=(int(width),int(height))
+    return cv.resize(frame,dimension,interpolation=cv.INTER_LINEAR)
